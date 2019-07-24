@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test-delivery-slip', 'TestDeliverySlipController@testGenerateDeliverySlip');
+Route::get('/delivery-slip', 'DeliverySlipController@testGenerateDeliverySlip');

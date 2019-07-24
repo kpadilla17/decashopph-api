@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\DeliverySlipPDFService;
 use PDF;
 
-class TestDeliverySlipController extends Controller
+class DeliverySlipController extends Controller
 {
 
 	public function __construct(DeliverySlipPDFService $DeliverySlipPDFService)
