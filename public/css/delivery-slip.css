@@ -1,0 +1,138 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+.header,
+.delivery,
+.articles {
+	font-family: unset;
+}
+
+.page-break {
+    page-break-after: always;
+}
+
+.header {
+	height: 100px;
+}
+
+.header .logo {
+	float: left;
+}
+
+.header .title {
+	text-align: right;
+}
+
+.header .title > div {
+	line-height: 25px;
+}
+
+.header .name {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.header .order-number {
+	font-size: 20px;
+}
+
+.delivery {
+	height: 230px;
+}
+
+.delivery .details,
+.delivery .order {
+	float: left;
+	width: 35%;
+	height: 230px;
+	margin-right: 20px;
+}
+
+.delivery .order {
+	width: 65%;
+}
+
+.delivery .details .title,
+.delivery .order .title {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.delivery .details .content div {
+	line-height: 25px;
+}
+
+.delivery .order .content .label {
+	float: left;
+	width: 150px;
+}
+
+.text-wrapper {
+	width: 100%;
+	height: 25px;
+}
+
+.order-details tr td:first-child {
+	width: 150px;
+}
+
+.articles {
+	/*border: solid 1px;*/
+	margin-top: 20px;
+	/*height: 1000px;*/
+}
+
+
+.articles table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.articles table td {
+	padding: 10px 5px;
+	font-size: 12px;
+    border-top: thin solid; 
+    border-bottom: thin solid;
+}
+
+.articles table tr td:first-child {
+     border-left: thin solid;
+}
+
+.articles table td:last-child {
+     border-right: thin solid;
+}
+
+.product-head {
+	padding: 5px;
+	background-color: #ccc;
+	font-size: 15px !important;
+	height: 15px;
+}
+
+footer {
+	position: fixed; 
+	bottom: -60px; 
+	left: 0px; 
+	right: 0px;
+	font-size: 8px;
+	text-align: center; 
+	background-color: white; 
+	height: 80px;
+}
+
+.page-number {
+	height: 200px;
+	width: 100px;
+	top: 0px;
+	left: 0px;
+	margin-top: 0px;
+	border: solid 1px;
+    position: fixed; 
+	background-color: white; 
+	opacity: .5;
+}
+
+.test-page-number:after { content: counter(page); }
