@@ -57,7 +57,7 @@ class DeliverySlipPDFService
 		$pdf->save($filePath);
  		
  		$email = new DeliverySlipEmail('kevin.padilla0717@gmail.com', 'Order Delivery Slips for Picking', $filePath);
- 		Mail::to('alabangall@decathlon.net')->send($email);
+ 		Mail::to('kevin.padilla0717@gmail.com')->send($email);
     }
 
     /**
