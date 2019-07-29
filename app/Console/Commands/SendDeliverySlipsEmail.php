@@ -49,6 +49,7 @@ class SendDeliverySlipsEmail extends Command
 
         if (!in_array($currentTime, [self::FIRST_BATCH, self::SECOND_BATCH])) {
             Log::info('Delivery Slip Cron Run Skipped.');
+            exit;
         }   
 
         $DeliverySlipPDFService = new DeliverySlipPDFService();
