@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Class DeliverySlipPDFService 
+ *
+ * @package App\Services
+ */
 namespace App\Services;
 
 use PDF;
@@ -15,6 +19,9 @@ class DeliverySlipPDFService
     private $OrderDetail;
     private $Category;
 
+    /**
+     * Class contructor
+     */
     function __construct()
     {
         $this->OrderInvoice = new OrderInvoice();

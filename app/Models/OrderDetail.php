@@ -1,18 +1,16 @@
 <?php
-
+/**
+ * Class OrderDetail 
+ *
+ * @package App\Models
+ */
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-/**
- * 
- */
 class OrderDetail extends Model
 {
-
-    const STATUS_IN_PROGRESS = 222;
-
     /**
      * The table associated with the model.
      *

@@ -3,26 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Services\TrackingService;
 
 class TrackParcelController extends Controller
 {
+    private $TrackingService;
 
-	public function index()
-	{
-		return response()->json(['message' => 'success']);
-	}
+    public function __construct(TrackingService $TrackingService)
+    {
+        $this->TrackingService = $TrackingService;
+    }
 
-	public function store(Request $Request)
-	{
-		$content  = $Request->getContent();
-		$body     = json_decode($content, true);
-		$filename = sprintf('parcel_tracking_%s_%s.json', $body['data']['parcel_id'], date('YmdHis'));
-		$filePath = storage_path($filename);
-		$file     = fopen($filePath, 'w');
+    public function index()
+    {
+        return response()->json(['message' => 'success']);
+    }
 
-		fwrite($file, json_encode($body));
-		fclose($file);
-
-		return response()->json(['message' => 'success']);
-	}
+    public function store(Request $Request)
+    {
+        $content  = $Request->getContent();
+        $body     = json_decode($content, true);
+        $this->TrackingService->saveParcelTracking($body);
+        return response()->json(['message' => 'success']);
+    }
 }
