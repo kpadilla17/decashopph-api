@@ -25,7 +25,12 @@ class DeliverySlipController extends Controller
      */
     public function testGenerateDeliverySlip()
     {
-        $this->DeliverySlipPDFService->sendDeliverySlips();
+        $response = $this->DeliverySlipPDFService->sendDeliverySlips();
+
+        if (!$response) {
+            return response()->json(['message' => 'no slips sent']);
+        }
+
         return response()->json(['message' => 'success']);
     }
 }

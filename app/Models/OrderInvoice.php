@@ -40,7 +40,7 @@ class OrderInvoice extends Model
             ->join('de_order_state', 'de_order_state.id_order_state', '=', 'de_orders.current_state')
             ->where('de_order_state.print_delivery', '=', 1)
             ->whereIn('de_orders.current_state', [self::STATUS_ALABANG_IN_PROGRESS, self::STATUS_ALABANG_IN_PROGRESS_OT])
-            ->toSql();
+            ->get();
 
         return $orders;
     }

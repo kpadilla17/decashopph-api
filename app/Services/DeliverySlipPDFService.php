@@ -38,6 +38,10 @@ class DeliverySlipPDFService
 
         $orders = $this->OrderInvoice->getInProgressOrders();
 
+        if (empty($orders)) {
+            return false;
+        }
+
         foreach ($orders as $order) {
             $orderDetails = $this->OrderDetail->getOrderDetails($order->id_order);
             foreach ($orderDetails as $orderDetail) {
@@ -65,6 +69,8 @@ class DeliverySlipPDFService
  		
  		$email = new DeliverySlipEmail('kevin.padilla0717@gmail.com', 'Order Delivery Slips for Picking', $filePath);
  		Mail::to('kevin.padilla0717@gmail.com')->send($email);
+
+        return true;
     }
 
     /**
