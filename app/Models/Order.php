@@ -25,6 +25,8 @@ class Order extends Model
      */
     protected $primaryKey = 'id_order';
 
+    public $timestamps = false;
+
     /**
      * Get the phone record associated with the user.
      */

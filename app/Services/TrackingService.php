@@ -11,6 +11,7 @@ use App\Models\Order;
 use App\Models\OrderCarrier;
 use App\Models\ParcelEvent;
 use App\Mail\TrackingEmail;
+use App\Models\OrderHistory;
 
 class TrackingService
 {
@@ -19,6 +20,8 @@ class TrackingService
 
     public function saveParcelTracking($trackingData)
     {
+        date_default_timezone_set('Asia/Manila');
+        
         if (!$this->validateTrackingData($trackingData)) {
             return false;
         }
@@ -61,6 +64,13 @@ class TrackingService
         $order->valid         = $eventStatus->logable;
         $order->save();
 
+        $history = new OrderHistory();
+        $history->id_order       = $order->id_order;
+        $history->id_employee    = 0;
+        $history->id_order_state = $eventStatus->id_order_state;
+        $history->date_add       = date('Y-m-d H:i:s');
+        $history->save();        
+
         $subject = 'Your order is being shipped';
         if ($eventStatus->status_key == self::DELIVERED_STATUS_KEY) {
             $subject = 'Your order has been delivered';
@@ -74,7 +84,7 @@ class TrackingService
             $template,
             $templateData
         );
-        
+
         return Mail::to($order->customer->email)->send($TrackingEmail);
     }
 

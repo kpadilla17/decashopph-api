@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\CarrierService;
+use App\Models\ShippingCarrierService;
 
 class OrderCarrier extends Model
 {
@@ -35,6 +35,6 @@ class OrderCarrier extends Model
 
     public function carrierService()
     {
-        return $this->hasOne(CarrierService::class, 'id_carrier', 'id_carrier');
+        return $this->hasOne(ShippingCarrierService::class, 'id_carrier', 'id_carrier');
     }
 }

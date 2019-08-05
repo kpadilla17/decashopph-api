@@ -119,7 +119,7 @@
         <div class="content-body">
             <div class="header">
                 <div class="image">
-                    <img src="decathlon-logo-main.jpg" alt="">
+                    <img src="https://www.decathlon.ph/img/decathlon-logo-main.jpg" alt="">
                 </div>
                 <div class="tag-line">
                     Making sports accessible for every juan!
@@ -130,7 +130,7 @@
                     Hi Kevin,
                 </div>
                 <div class="message">
-                    Great news! Your order is on it's way! The Tracking ID of your order is:
+                    Order Delivered
                 </div>
                 <div class="tracking-number">
                     NVPHDECAA000098413
