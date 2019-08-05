@@ -32,4 +32,14 @@ class Order extends Model
     {
         return $this->hasOne('App\Models\OrderCarrier', 'id_order');
     }
+
+    public function customer()
+    {
+        return $this->belongsTo('App\Models\Customer', 'id_customer');
+    }
+
+    public function store()
+    {
+        return $this->hasOne('App\Models\OrderMultiStorePicking', 'id_order');
+    }
 }

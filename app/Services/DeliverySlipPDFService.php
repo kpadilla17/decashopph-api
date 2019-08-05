@@ -12,6 +12,7 @@ use App\Models\OrderInvoice;
 use App\Models\OrderDetail;
 use App\Models\Category;
 use App\Mail\DeliverySlipEmail;
+use Illuminate\Support\Facades\Log;
 
 class DeliverySlipPDFService
 {
@@ -38,7 +39,8 @@ class DeliverySlipPDFService
 
         $orders = $this->OrderInvoice->getInProgressOrders();
 
-        if (empty($orders)) {
+        if (!$orders->count()) {
+            Log::info('Orders for Delivery Slip Found.');
             return false;
         }
 

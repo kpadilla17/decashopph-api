@@ -7,6 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\CarrierService;
 
 class OrderCarrier extends Model
 {
@@ -30,5 +31,10 @@ class OrderCarrier extends Model
     public function order()
     {
         return $this->belongsTo('App\Models\Order', 'id_order', 'id_order');
+    }
+
+    public function carrierService()
+    {
+        return $this->hasOne(CarrierService::class, 'id_carrier', 'id_carrier');
     }
 }
